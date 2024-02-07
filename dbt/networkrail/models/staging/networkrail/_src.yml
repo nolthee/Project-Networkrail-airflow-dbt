@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: networkrail
+    schema: networkrail
+    database: deb2-test-at-home
+
+    tables:
+      - name: movements
+        description: Network Rail movement data
+        columns:
+          - name: event_type
+            description: Event type
+          - name: gbtt_timestamp_utc
+            description: Timestamp gbtt
+          - name: original_loc_stanox
+            description: Original loc stanox
+          - name: planned_timestamp_utc
+            descirption: Planned timestamp
+          - name: timetable_variation
+            descirption: Timetable variation
+          - name: original_loc_timestamp_utc
+            descirption: Original loc time
+          - name: current_train_id
+            descirption: Current train id
+          - name: delay_monitoring_point
+            descirption: Delay monitoring point
+          - name: next_report_run_time
+            descirption: Next report run time
+          - name: reporting_stanox
+            description: Reeporting stanox
+          - name: actual_timestamp_utc
+            decsription: Actual timestamp
+          - name: correction_ind
+            description: Correction ind
+          - name: event_source
+            description: Event source
+          - name: train_file_address
+            description: Train file address
+          - name: platform
+          - name: division_code
+            description: Division code
+          - name: train_terminated
+            description: Train terminated
+          - name: train_id
+            description: Train id
+          - name: offroute_ind
+            description: Offroute ind
+          - name: variation_status
+            description: Variation status
+          - name: train_service_cotoc_ide
+            description: Train service code
+          - name: toc_id
+            description: Toc id
+          - name: loc_stanox
+            description: Loc stanox
+          - name: auto_expected
+            description: Auto expected
+          - name: direction_ind
+            description: Direction ind
+          - name: route
+          - name: planned_event_type
+            description: Planned event type
+          - name: next_report_stanox
+            description: Next report stanox
+          - name: line_ind
+            description: Line id
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 2, period: hour}
+        loaded_at_field: actual_timestamp_utc
